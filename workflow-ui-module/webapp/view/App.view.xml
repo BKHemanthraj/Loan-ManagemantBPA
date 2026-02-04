@@ -1,0 +1,87 @@
+<mvc:View controllerName="LoanManagementBPA.workflowuimodule.controller.App"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:uxap="sap.uxap"
+    xmlns:layout="sap.ui.layout"
+    xmlns:form="sap.ui.layout.form"
+    xmlns="sap.m"
+    displayBlock="true"
+    height="100%">
+    <App id="app">
+        <pages>
+            <Page showHeader="false">
+                <content>
+                    <uxap:ObjectPageLayout id="ObjectPageLayout" showAnchorBar="true">
+                        <uxap:headerTitle>
+                            <uxap:ObjectPageDynamicHeaderTitle>
+                                <uxap:expandedHeading>
+                                    <Title text="Header Details" wrapping="true"/>
+                                </uxap:expandedHeading>
+                                <uxap:snappedHeading>
+                                    <Title text="Header Details" wrapping="true"/>
+                                </uxap:snappedHeading>
+                            </uxap:ObjectPageDynamicHeaderTitle>
+                        </uxap:headerTitle>
+
+                        <uxap:headerContent>
+                            <layout:HorizontalLayout allowWrapping="true">
+                                <VBox class="sapUiLargeMarginEnd">
+                                    <Label text="Loan" />
+                                    <Text text="{context>/loanNumber}" />
+                                </VBox>
+                                <VBox class="sapUiLargeMarginEnd">
+                                    <Label text="BP Number" />
+                                    <Text text="{context>/bpNumber}" />
+                                </VBox>
+                                <VBox class="sapUiLargeMarginEnd">
+                                    <Label text="Partner Name" />
+                                    <Text text="Berks Barber School" />
+                                </VBox>
+                                <VBox class="sapUiLargeMarginEnd">
+                                    <Label text="Status" />
+                                    <ObjectStatus text="{context>/status}" state="Warning" />
+                                </VBox>
+                                <VBox>
+                                    <Label text="Disb. Status" />
+                                    <Text text="{context>/disbursementStatus}" />
+                                </VBox>
+                            </layout:HorizontalLayout>
+                        </uxap:headerContent>
+
+                        <uxap:sections>
+                            <uxap:ObjectPageSection title="Tracking">
+                                <uxap:subSections>
+                                    <uxap:ObjectPageSubSection title="Application/Approval">
+                                        <uxap:blocks>
+                                            <form:SimpleForm editable="true" layout="ResponsiveGridLayout">
+                                                <form:content>
+                                                    <Label text="Application Date" />
+                                                    <DatePicker value="{path: 'context>/applicationDate', type: 'sap.ui.model.type.Date', formatOptions: { style: 'short'}}" />
+                                                    
+                                                    <Label text="Approval Date" />
+                                                    <DatePicker value="{path: 'context>/approvalDate', type: 'sap.ui.model.type.Date', formatOptions: { style: 'short'}}" />
+                                                    
+                                                    <Label text="Application Capital" />
+                                                    <Input value="{context>/applicationCapital}" />
+                                                    
+                                                    <Label text="Commitment Date" />
+                                                    <DatePicker value="{path: 'context>/commitmentDate', type: 'sap.ui.model.type.Date', formatOptions: { style: 'short'}}" />
+                                                </form:content>
+                                            </form:SimpleForm>
+                                        </uxap:blocks>
+                                    </uxap:ObjectPageSubSection>
+                                </uxap:subSections>
+                            </uxap:ObjectPageSection>
+
+                            <uxap:ObjectPageSection title="Basic data">
+                                <uxap:subSections>
+                                    <uxap:ObjectPageSubSection title="Basic Information">
+                                        </uxap:ObjectPageSubSection>
+                                </uxap:subSections>
+                            </uxap:ObjectPageSection>
+                        </uxap:sections>
+                    </uxap:ObjectPageLayout>
+                </content>
+            </Page>
+        </pages>
+    </App>
+</mvc:View>

@@ -1,0 +1,92 @@
+_schema-version: "3.2"
+ID: LoanManagemntBPA
+version: 0.0.1
+modules:
+- name: LoanManagemntBPA-destination-content
+  type: com.sap.application.content
+  requires:
+  - name: LoanManagemntBPA-destination-service
+    parameters:
+      content-target: true
+  - name: LoanManagemntBPA_html_repo_host
+    parameters:
+      service-key:
+        name: LoanManagemntBPA_html_repo_host-key
+  - name: uaa_LoanManagemntBPA
+    parameters:
+      service-key:
+        name: uaa_LoanManagemntBPA-key
+  parameters:
+    content:
+      subaccount:
+        destinations:
+        - Name: LoanManagemenMTABPA_LoanManagemntBPA_html_repo_host
+          ServiceInstanceName: LoanManagemntBPA-html5-app-host-service
+          ServiceKeyName: LoanManagemntBPA_html_repo_host-key
+          sap.cloud.service: LoanManagemenMTABPA
+        - Authentication: OAuth2UserTokenExchange
+          Name: LoanManagemenMTABPA_uaa_LoanManagemntBPA
+          ServiceInstanceName: LoanManagemntBPA-xsuaa-service
+          ServiceKeyName: uaa_LoanManagemntBPA-key
+          sap.cloud.service: LoanManagemenMTABPA
+        existing_destinations_policy: ignore
+  build-parameters:
+    no-source: true
+- name: LoanManagemntBPA-app-content
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: LoanManagemntBPA_html_repo_host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - LoanManagementBPAworkflowuimodule.zip
+      name: LoanManagementBPAworkflowuimodule
+      target-path: resources/
+- name: LoanManagementBPAworkflowuimodule
+  type: html5
+  path: workflow-ui-module
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+resources:
+- name: LoanManagemntBPA-destination-service
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      HTML5Runtime_enabled: true
+      init_data:
+        subaccount:
+          destinations:
+          - Authentication: NoAuthentication
+            Name: ui5
+            ProxyType: Internet
+            Type: HTTP
+            URL: https://ui5.sap.com
+          existing_destinations_policy: update
+      version: 1.0.0
+    service: destination
+    service-name: LoanManagemntBPA-destination-service
+    service-plan: lite
+- name: LoanManagemntBPA_html_repo_host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-name: LoanManagemntBPA-html5-app-host-service
+    service-plan: app-host
+- name: uaa_LoanManagemntBPA
+  type: org.cloudfoundry.managed-service
+  parameters:
+    path: ./xs-security.json
+    service: xsuaa
+    service-name: LoanManagemntBPA-xsuaa-service
+    service-plan: application
+parameters:
+  deploy_mode: html5-repo
