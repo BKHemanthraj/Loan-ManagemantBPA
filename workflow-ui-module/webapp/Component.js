@@ -14,54 +14,43 @@ sap.ui.define(
           manifest: "json",
         },
 
-        /**
-         * The component is initialized by UI5 automatically during the startup of the app and calls the init method once.
-         * @public
-         * @override
-         */
         init: function () {
-          // call the base component's init function
           UIComponent.prototype.init.apply(this, arguments);
-
-          // enable routing
           this.getRouter().initialize();
-
-          // set the device model
           this.setModel(models.createDeviceModel(), "device");
-
           this.setTaskModels();
 
+          // Action for the 'Approve' button in My Inbox
           this.getInboxAPI().addAction(
             {
-              action: "APPROVE",
+              action: "approve",
               label: "Approve",
-              type: "accept", // (Optional property) Define for positive appearance
+              type: "accept",
             },
             function () {
-              this.completeTask(true);
+              this.completeTask("approve");
             },
             this
           );
 
+          // Action for the 'Reject' button in My Inbox
           this.getInboxAPI().addAction(
             {
-              action: "REJECT",
+              action: "reject",
               label: "Reject",
-              type: "reject", // (Optional property) Define for negative appearance
+              type: "reject",
             },
             function () {
-              this.completeTask(false);
+              this.completeTask("reject");
             },
             this
           );
         },
 
         setTaskModels: function () {
-          // set the task model
           var startupParameters = this.getComponentData().startupParameters;
           this.setModel(startupParameters.taskModel, "task");
 
-          // set the task context model
           var taskContextModel = new sap.ui.model.json.JSONModel(
             this._getTaskInstancesBaseURL() + "/context"
           );
@@ -77,11 +66,8 @@ sap.ui.define(
         },
 
         _getWorkflowRuntimeBaseURL: function () {
-          var appId = this.getManifestEntry("/sap.app/id");
-          var appPath = appId.replaceAll(".", "/");
-          var appModulePath = jQuery.sap.getModulePath(appPath);
-
-          return appModulePath + "/bpmworkflowruntime/v1";
+          // This must match the route source in xs-app.json
+          return "/api/public/workflow/rest/v1";
         },
 
         getTaskInstanceID: function () {
@@ -93,35 +79,36 @@ sap.ui.define(
           return startupParameters.inboxAPI;
         },
 
-        completeTask: function (approvalStatus) {
-          this.getModel("context").setProperty("/approved", approvalStatus);
-          this._patchTaskInstance();
-          this._refreshTaskList();
+        completeTask: function (outcomeId) {
+          this._patchTaskInstance(outcomeId);
         },
 
-        _patchTaskInstance: function () {
+        _patchTaskInstance: function (outcomeId) {
+          // 'decision' corresponds to the outcome ID in manifest/process builder
           var data = {
             status: "COMPLETED",
             context: this.getModel("context").getData(),
+            decision: outcomeId 
           };
 
           jQuery.ajax({
             url: this._getTaskInstancesBaseURL(),
             method: "PATCH",
             contentType: "application/json",
-            async: false,
             data: JSON.stringify(data),
             headers: {
               "X-CSRF-Token": this._fetchToken(),
             },
+            success: () => {
+                this.getInboxAPI().updateTask("NA", this.getTaskInstanceID());
+            }
           });
         },
 
         _fetchToken: function () {
           var fetchedToken;
-
           jQuery.ajax({
-            url: this._getWorkflowRuntimeBaseURL() + "/xsrf-token",
+            url: "/api/public/workflow/rest/v1/xsrf-token",
             method: "GET",
             async: false,
             headers: {
@@ -132,11 +119,7 @@ sap.ui.define(
             },
           });
           return fetchedToken;
-        },
-
-        _refreshTaskList: function () {
-          this.getInboxAPI().updateTask("NA", this.getTaskInstanceID());
-        },
+        }
       }
     );
   }

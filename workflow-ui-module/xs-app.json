@@ -3,10 +3,11 @@
   "authenticationMethod": "route",
   "routes": [
     {
-      "source": "^/bpmworkflowruntime/(.*)$",
-      "target": "/public/workflow/rest/$1",
+      "source": "^/api/(.*)$",
+      "target": "$1",
       "service": "com.sap.spa.processautomation",
       "endpoint": "api",
+      "csrfProtection": true,
       "authenticationType": "xsuaa"
     },
     {

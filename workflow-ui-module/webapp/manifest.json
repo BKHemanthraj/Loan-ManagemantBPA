@@ -123,45 +123,101 @@
         "service": "LoanManagemenMTABPA"
     },
     "sap.bpa.task": {
-    "_version": "1.0.0",
-    "category": "approval",
-    "inputs": {
-        "$schema": "http://json-schema.org/draft-07/schema",
-        "title": "input",
-        "type": "object",
-        "required": [
-            "loanNumber",
-            "bpNumber"
-        ],
-        "properties": {
-            "loanNumber": { "type": "string", "title": "Loan Number" },
-            "bpNumber": { "type": "string", "title": "BP Number" }
-            // Add other fields from your CDS here as needed
-        }
-    },
-    "outputs": {
-        "$schema": "http://json-schema.org/draft-07/schema",
-        "title": "output",
-        "type": "object",
-        "required": [
-            "comment"
-        ],
-        "properties": {
-            "comment": {
-                "type": "string",
-                "title": "Approver Comment"
+        "_version": "1.0.0",
+        "category": "approval",
+        "inputs": {
+            "$schema": "http://json-schema.org/draft-07/schema",
+            "title": "input",
+            "type": "object",
+            "required": [
+                "loanNumber",
+                "bpNumber"
+            ],
+            "properties": {
+                "loanNumber": {
+                    "type": "string",
+                    "title": "Loan"
+                },
+                "bpNumber": {
+                    "type": "string",
+                    "title": "BP Number"
+                },
+                "loanPartnerName": {
+                    "type": "string",
+                    "title": "Partner Name"
+                },
+                "status": {
+                    "type": "string",
+                    "title": "Status"
+                },
+                "disbursementStatus": {
+                    "type": "string",
+                    "title": "Disb. Status"
+                },
+                "applicationDate": {
+                    "type": "string",
+                    "format": "date",
+                    "title": "Application Date"
+                },
+                "approvalDate": {
+                    "type": "string",
+                    "format": "date",
+                    "title": "Approval Date"
+                },
+                "applicationCapital": {
+                    "type": "number",
+                    "title": "Application Capital"
+                },
+                "commitmentDate": {
+                    "type": "string",
+                    "format": "date",
+                    "title": "Commitment Date"
+                },
+                "offer": {
+                    "type": "string",
+                    "title": "Offer"
+                },
+                "acceptance": {
+                    "type": "string",
+                    "title": "Acceptance"
+                },
+                "contractInfo": {
+                    "type": "string",
+                    "title": "Contract Details"
+                },
+                "bpCategory": {
+                    "type": "string",
+                    "title": "BP Category"
+                },
+                "partnerType": {
+                    "type": "string",
+                    "title": "Partner Type"
+                }
             }
-        }
-    },
-    "outcomes": [
-        {
-            "id": "approve",
-            "label": "Approve"
         },
-        {
-            "id": "reject",
-            "label": "Reject"
-        }
-    ]
-}
+        "outputs": {
+            "$schema": "http://json-schema.org/draft-07/schema",
+            "title": "output",
+            "type": "object",
+            "required": [
+                "comment"
+            ],
+            "properties": {
+                "comment": {
+                    "type": "string",
+                    "title": "Approver Comment"
+                }
+            }
+        },
+        "outcomes": [
+            {
+                "id": "approve",
+                "label": "Approve"
+            },
+            {
+                "id": "reject",
+                "label": "Reject"
+            }
+        ]
+    }
 }

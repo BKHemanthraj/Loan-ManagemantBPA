@@ -1,7 +1,515 @@
 <mvc:View controllerName="LoanManagementBPA.workflowuimodule.controller.App"
-    xmlns:html="http://www.w3.org/1999/xhtml"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m">
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns:uxap="sap.uxap" 
+    xmlns:suite="sap.suite.ui.commons"
+    xmlns:layout="sap.ui.layout"
+    xmlns:form="sap.ui.layout.form" 
+    xmlns:core="sap.ui.core" 
+    xmlns:m="sap.m"
+    xmlns="sap.m"
+    displayBlock="true" height="100%">
     <App id="app">
+        <Page showHeader="false">
+            <content>
+                <uxap:ObjectPageLayout id="ObjectPageLayout" 
+                    showAnchorBar="true" 
+                    useIconTabBar="true" 
+                    upperCaseAnchorBar="false"
+                    sectionTitleVariant="Auto">
+                    
+                    <uxap:headerTitle>
+                        <uxap:ObjectPageDynamicHeaderTitle>
+                            <uxap:expandedHeading>
+                                <Title text="Header Details" level="H2"/>
+                            </uxap:expandedHeading>
+                            <uxap:snappedHeading>
+                                <Title text="Header Details" level="H2"/>
+                            </uxap:snappedHeading>
+                        </uxap:ObjectPageDynamicHeaderTitle>
+                    </uxap:headerTitle>
+
+                    <uxap:headerContent>
+    <m:FlexBox width="100%" wrap="NoWrap" alignItems="Start" justifyContent="SpaceBetween">
+        <m:items>
+            <m:VBox width="20%">
+                <m:Label text="Loan" design="Bold"/>
+                <m:Text text="LN-882299" />
+            </m:VBox>
+
+            <m:VBox width="20%">
+                <m:Label text="BP Number" design="Bold"/>
+                <m:Text text="BP-554433" />
+            </m:VBox>
+
+            <m:VBox width="20%">
+                <m:Label text="Partner Name" design="Bold"/>
+                <m:Text text="Peol Technologies" />
+            </m:VBox>
+
+            <m:VBox width="20%">
+                <m:Label text="Status" design="Bold"/>
+                <m:ObjectStatus text="Approved" state="Success" />
+            </m:VBox>
+
+            <m:VBox width="20%">
+                <m:Label text="Disb. Status" design="Bold"/>
+                <m:Text text="Fully Disbursed" />
+            </m:VBox>
+        </m:items>
+    </m:FlexBox>
+</uxap:headerContent>
+
+                    <uxap:sections>
+<uxap:ObjectPageSection id="trackingSection" title="Tracking" titleUppercase="false">
+    <uxap:subSections>
+        
+        <uxap:ObjectPageSubSection title="Application/Approval" titleUppercase="false">
+            <m:FlexBox wrap="NoWrap" alignItems="Center" justifyContent="Start" class="sapUiSmallMargin">
+                <m:items>
+                    <m:VBox class="sapUiMediumMarginEnd">
+                        <m:Label text="Application Date:" />
+                        <m:DatePicker value="12/31/2026" displayFormat="MM/dd/yyyy" editable="false" width="11rem" />
+                    </m:VBox>
+                    <m:VBox class="sapUiMediumMarginEnd">
+                        <m:Label text="Approval Date:" />
+                        <m:DatePicker value="12/31/2026" displayFormat="MM/dd/yyyy" editable="false" width="11rem" />
+                    </m:VBox>
+                    <m:VBox class="sapUiMediumMarginEnd">
+                        <m:Label text="Application Capital:" />
+                        <m:Input value="500,000.00" editable="false" width="11rem" />
+                    </m:VBox>
+                    <m:VBox>
+                        <m:Label text="Commitment Date:" />
+                        <m:DatePicker value="12/31/2026" displayFormat="MM/dd/yyyy" editable="false" width="11rem" />
+                    </m:VBox>
+                </m:items>
+            </m:FlexBox>
+        </uxap:ObjectPageSubSection>
+
+        <uxap:ObjectPageSubSection title="Offer/Accept" titleUppercase="false">
+            <m:FlexBox wrap="NoWrap" alignItems="Center" justifyContent="Start" class="sapUiSmallMargin">
+                <m:items>
+                    <m:VBox class="sapUiMediumMarginEnd">
+                        <m:Label text="Offer On:" />
+                        <m:DatePicker value="12/31/2026" displayFormat="MM/dd/yyyy" editable="false" width="12rem" />
+                    </m:VBox>
+                    <m:VBox class="sapUiMediumMarginEnd">
+                        <m:Label text="Offer Until:" />
+                        <m:DatePicker value="12/31/2026" displayFormat="MM/dd/yyyy" editable="false" width="12rem" />
+                    </m:VBox>
+                    <m:VBox class="sapUiMediumMarginEnd">
+                        <m:Label text="Acceptance:" />
+                        <m:CheckBox selected="true" enabled="false" />
+                    </m:VBox>
+                    <m:VBox>
+                        <m:Label text="Accepted On:" />
+                        <m:DatePicker value="12/31/2026" displayFormat="MM/dd/yyyy" editable="false" width="12rem" />
+                    </m:VBox>
+                </m:items>
+            </m:FlexBox>
+        </uxap:ObjectPageSubSection>
+
+        <uxap:ObjectPageSubSection title="Contract" titleUppercase="false">
+            <m:FlexBox wrap="NoWrap" alignItems="Center" justifyContent="Start" class="sapUiSmallMargin">
+                <m:items>
+                    <m:VBox class="sapUiMediumMarginEnd">
+                        <m:Label text="Contract On:" />
+                        <m:DatePicker value="12/31/2026" displayFormat="MM/dd/yyyy" editable="false" width="11rem" />
+                    </m:VBox>
+                    <m:VBox class="sapUiMediumMarginEnd">
+                        <m:Label text="Amortization Date:" />
+                        <m:DatePicker value="12/31/2026" displayFormat="MM/dd/yyyy" editable="false" width="11rem" />
+                    </m:VBox>
+                    <m:VBox class="sapUiMediumMarginEnd">
+                        <m:Label text="Maturity Date:" />
+                        <m:DatePicker value="12/31/2026" displayFormat="MM/dd/yyyy" editable="false" width="11rem" />
+                    </m:VBox>
+                    <m:VBox>
+                        <m:Label text="Date Paid Off:" />
+                        <m:DatePicker value="12/31/2026" displayFormat="MM/dd/yyyy" editable="false" width="11rem" />
+                    </m:VBox>
+                </m:items>
+            </m:FlexBox>
+        </uxap:ObjectPageSubSection>
+
+    </uxap:subSections>
+</uxap:ObjectPageSection>
+
+
+                  <uxap:ObjectPageSection id="basicDataSection" title="Basic data" titleUppercase="false">
+    <uxap:subSections>
+        
+        <uxap:ObjectPageSubSection title="General Information" titleUppercase="false">
+            <m:FlexBox wrap="NoWrap" alignItems="Center" justifyContent="Start" class="sapUiSmallMargin">
+                <m:items>
+                    <m:VBox class="sapUiMediumMarginEnd">
+                        <m:Label text="Loan Type:" />
+                        <m:Text text="Commercial Loan" />
+                    </m:VBox>
+                    <m:VBox>
+                        <m:Label text="Agency:" />
+                        <m:Text text="Global Finance Agency" />
+                    </m:VBox>
+                </m:items>
+            </m:FlexBox>
+        </uxap:ObjectPageSubSection>
+
+        <uxap:ObjectPageSubSection title="Analysis Data" titleUppercase="false">
+            <m:FlexBox wrap="NoWrap" alignItems="Center" justifyContent="Start" class="sapUiSmallMargin">
+                <m:items>
+                    <m:VBox class="sapUiMediumMarginEnd">
+                        <m:Label text="Purpose of Loan:" />
+                        <m:Input value="Infrastructure Expansion" editable="false" width="11rem" />
+                    </m:VBox>
+                    <m:VBox class="sapUiMediumMarginEnd">
+                        <m:Label text="Designation:" />
+                        <m:Input value="Priority A" editable="false" width="11rem" />
+                    </m:VBox>
+                    <m:VBox class="sapUiMediumMarginEnd">
+                        <m:Label text="Pledged Status:" />
+                        <m:Input value="Fully Pledged" editable="false" width="11rem" />
+                    </m:VBox>
+                    <m:VBox>
+                        <m:Label text="Amortization Status:" />
+                        <m:Select selectedKey="Active" width="11rem" enabled="false">
+                            <core:Item key="Active" text="Active" />
+                        </m:Select>
+                    </m:VBox>
+                </m:items>
+            </m:FlexBox>
+        </uxap:ObjectPageSubSection>
+
+        <uxap:ObjectPageSubSection title="Organization" titleUppercase="false">
+            <m:FlexBox wrap="NoWrap" alignItems="Center" justifyContent="Start" class="sapUiSmallMargin">
+                <m:items>
+                    <m:VBox class="sapUiMediumMarginEnd">
+                        <m:Label text="County:" />
+                        <m:Input value="New York" editable="false" width="12rem" />
+                    </m:VBox>
+                    <m:VBox class="sapUiMediumMarginEnd">
+                        <m:Label text="Organiz. District:" />
+                        <m:Input value="District 05" editable="false" width="12rem" />
+                    </m:VBox>
+                    <m:VBox>
+                        <m:Label text="Agent District:" />
+                        <m:Input value="AD-99" editable="false" width="12rem" />
+                    </m:VBox>
+                </m:items>
+            </m:FlexBox>
+        </uxap:ObjectPageSubSection>
+
+        <uxap:ObjectPageSubSection title="Reference Data" titleUppercase="false">
+            <m:FlexBox wrap="NoWrap" alignItems="Center" justifyContent="Start" class="sapUiSmallMargin">
+                <m:items>
+                    <m:VBox class="sapUiMediumMarginEnd">
+                        <m:Label text="Legacy Number:" />
+                        <m:Input value="LEG-8822" editable="false" width="12rem" />
+                    </m:VBox>
+                    <m:VBox class="sapUiMediumMarginEnd">
+                        <m:Label text="Project Number:" />
+                        <m:Input value="PROJ-001" editable="false" width="12rem" />
+                    </m:VBox>
+                    <m:VBox>
+                        <m:Label text="Primary Industry:" />
+                        <m:Input value="Technology" editable="false" width="12rem" />
+                    </m:VBox>
+                </m:items>
+            </m:FlexBox>
+        </uxap:ObjectPageSubSection>
+
+    </uxap:subSections>
+</uxap:ObjectPageSection>
+
+<uxap:ObjectPageSection id="conditionsSection" title="Conditions" titleUppercase="false">
+    <uxap:subSections>
+        
+        <uxap:ObjectPageSubSection title="Conditions" titleUppercase="false">
+            <m:FlexBox wrap="NoWrap" alignItems="Center" justifyContent="Start" class="sapUiSmallMargin">
+                <m:items>
+                    <m:VBox class="sapUiMediumMarginEnd">
+                        <m:Label text="Commit Capital:" />
+                        <m:Input value="500,000.00" editable="false" width="12rem" />
+                    </m:VBox>
+                </m:items>
+            </m:FlexBox>
+        </uxap:ObjectPageSubSection>
+
+        <uxap:ObjectPageSubSection title="Term/Fixed Period" titleUppercase="false">
+            <m:FlexBox wrap="NoWrap" alignItems="Center" justifyContent="Start" class="sapUiSmallMargin">
+                <m:items>
+                    <m:VBox class="sapUiMediumMarginEnd">
+                        <m:Label text="Fixed From:" />
+                        <m:DatePicker value="12/31/2026" displayFormat="MM/dd/yyyy" editable="false" width="12rem" />
+                    </m:VBox>
+                    <m:VBox class="sapUiMediumMarginEnd">
+                        <m:Label text="Fixed Until:" />
+                        <m:DatePicker value="12/31/2026" displayFormat="MM/dd/yyyy" editable="false" width="12rem" />
+                    </m:VBox>
+                    <m:VBox>
+                        <m:Label text="Inclusive Indicator:" />
+                        <m:CheckBox selected="true" enabled="false" />
+                    </m:VBox>
+                </m:items>
+            </m:FlexBox>
+        </uxap:ObjectPageSubSection>
+
+        <uxap:ObjectPageSubSection title="Interest Calculation" titleUppercase="false">
+            <m:FlexBox wrap="NoWrap" alignItems="Center" justifyContent="Start" class="sapUiSmallMargin">
+                <m:items>
+                    <m:VBox class="sapUiMediumMarginEnd">
+                        <m:Label text="Int.Cal.Mt:" />
+                        <m:Input value="30/360" editable="false" width="12rem" />
+                    </m:VBox>
+                </m:items>
+            </m:FlexBox>
+        </uxap:ObjectPageSubSection>
+
+        <uxap:ObjectPageSubSection title="Notice" titleUppercase="false">
+            <m:FlexBox wrap="NoWrap" alignItems="Center" justifyContent="Start" class="sapUiSmallMargin">
+                <m:items>
+                    <m:VBox class="sapUiMediumMarginEnd">
+                        <m:Label text="Interest Rate Reset Type:" />
+                        <m:Input value="Fixed" editable="false" width="12rem" />
+                    </m:VBox>
+                    <m:VBox>
+                        <m:Label text="Interest Rate Reset Date:" />
+                        <m:DatePicker value="12/31/2026" displayFormat="MM/dd/yyyy" editable="false" width="12rem" />
+                    </m:VBox>
+                </m:items>
+            </m:FlexBox>
+        </uxap:ObjectPageSubSection>
+
+    </uxap:subSections>
+</uxap:ObjectPageSection>
+
+
+<uxap:ObjectPageSection id="partnerSection" title="Partner" titleUppercase="false">
+    <uxap:subSections>
+        
+        <uxap:ObjectPageSubSection title="Partners" titleUppercase="false">
+            <m:Table id="partnersTable" sticky="HeaderToolbar,ColumnHeaders">
+                <m:headerToolbar>
+                    <!-- <m:OverflowToolbar>
+                        <m:Title text="Partners (2)" level="H4" />
+                        <m:ToolbarSpacer/>
+                        <m:SearchField width="15rem" editable="false"/>
+                        <m:Button text="Create" type="Transparent" enabled="false" />
+                        <m:Button text="Delete" type="Transparent" enabled="false" />
+                    </m:OverflowToolbar> -->
+                </m:headerToolbar>
+                <m:columns>
+                    <m:Column><m:Text text="BP Role No."/></m:Column>
+                    <m:Column><m:Text text="Role Name"/></m:Column>
+                    <m:Column><m:Text text="Partner No."/></m:Column>
+                    <m:Column><m:Text text="Partner Name"/></m:Column>
+                    <m:Column><m:Text text="Start Rel."/></m:Column>
+                    <m:Column hAlign="End"><m:Text text="End Rel."/></m:Column>
+                </m:columns>
+                <m:items>
+                    <m:ColumnListItem>
+                        <m:cells>
+                            <m:Text text="TR0100" />
+                            <m:Text text="Main Borrower" />
+                            <m:Text text="BP882299" />
+                            <m:Text text="TechCorp Solutions" />
+                            <m:Text text="01/01/2026" />
+                            <m:Text text="12/31/2030" />
+                        </m:cells>
+                    </m:ColumnListItem>
+                    <m:ColumnListItem>
+                        <m:cells>
+                            <m:Text text="TR0120" />
+                            <m:Text text="Co-Borrower" />
+                            <m:Text text="BP554433" />
+                            <m:Text text="Global Logistics Inc" />
+                            <m:Text text="02/15/2026" />
+                            <m:Text text="12/31/2030" />
+                        </m:cells>
+                    </m:ColumnListItem>
+                </m:items>
+            </m:Table>
+        </uxap:ObjectPageSubSection>
+
+        <uxap:ObjectPageSubSection title="Incoming Payment" titleUppercase="false">
+            <m:FlexBox wrap="NoWrap" alignItems="Center" justifyContent="Start" class="sapUiSmallMargin">
+                <m:items>
+                    <m:VBox class="sapUiMediumMarginEnd">
+                        <m:Label text="Incoming Payment Method:" />
+                        <m:Select selectedKey="A" width="12rem" enabled="false">
+                            <core:Item key="A" text="Method A (ACH)" />
+                        </m:Select>
+                    </m:VBox>
+                    
+                    <m:VBox class="sapUiMediumMarginEnd">
+                        <m:Label text="AR Billing Job:" />
+                        <m:Select selectedKey="1" width="12rem" enabled="false">
+                            <core:Item key="1" text="Monthly Batch 01" />
+                        </m:Select>
+                    </m:VBox>
+                    
+                    <m:VBox class="sapUiMediumMarginEnd">
+                        <m:Label text="Payoff Lock:" />
+                        <m:CheckBox selected="true" enabled="false" />
+                    </m:VBox>
+                    
+                    <m:VBox>
+                        <m:Label text="Exclude from Dunning:" />
+                        <m:CheckBox selected="true" enabled="false" />
+                    </m:VBox>
+                    <m:VBox>
+                        <m:Label text="1098 Relevant Indicator:" />
+                        <m:CheckBox selected="true" enabled="false" />
+                    </m:VBox>
+                </m:items>
+            </m:FlexBox>
+        </uxap:ObjectPageSubSection>
+
+    </uxap:subSections>
+</uxap:ObjectPageSection>
+
+                       <uxap:ObjectPageSection id="disbursementSection" title="Disbursement" titleUppercase="false">
+    <uxap:subSections>
+        
+        <uxap:ObjectPageSubSection title="Capital" titleUppercase="false">
+            <m:FlexBox wrap="NoWrap" alignItems="Center" justifyContent="Start" class="sapUiSmallMargin">
+                <m:items>
+                    <m:VBox class="sapUiMediumMarginEnd">
+                        <m:Label text="Disbursement Oblig:" />
+                        <m:Input value="450,000.00 USD" editable="false" width="15rem" />
+                    </m:VBox>
+                </m:items>
+            </m:FlexBox>
+        </uxap:ObjectPageSubSection>
+
+        <uxap:ObjectPageSubSection title="Earmark Fund Document" titleUppercase="false">
+            <m:Table id="earmarkTable" sticky="HeaderToolbar,ColumnHeaders">
+                <!-- <m:headerToolbar>
+                    <m:OverflowToolbar>
+                        <m:ToolbarSpacer/>
+                        <m:SearchField width="15rem" editable="false"/>
+                        <m:Button text="Release" type="Transparent" enabled="false" />
+                        <m:Button text="FM Document" type="Transparent" enabled="false" />
+                        <m:Button text="Create" icon="sap-icon://add" type="Transparent" enabled="false" />
+                        <m:Button text="Delete" icon="sap-icon://delete" type="Transparent" enabled="false" />
+                    </m:OverflowToolbar>
+                </m:headerToolbar> -->
+                <m:columns>
+                    <m:Column width="8rem"><m:Text text="Document Line"/></m:Column>
+                    <m:Column><m:Text text="Loan Category"/></m:Column>
+                    <m:Column><m:Text text="Original Amount"/></m:Column>
+                    <m:Column><m:Text text="Fund"/></m:Column>
+                    <m:Column><m:Text text="GL Account"/></m:Column>
+                </m:columns>
+                <m:items>
+                    <m:ColumnListItem>
+                        <m:cells>
+                            <m:Text text="0001" />
+                            <m:Text text="Commercial" />
+                            <m:Text text="100,000.00" />
+                            <m:Text text="FUND_01" />
+                            <m:Text text="600200" />
+                        </m:cells>
+                    </m:ColumnListItem>
+                </m:items>
+            </m:Table>
+        </uxap:ObjectPageSubSection>
+
+        <uxap:ObjectPageSubSection title="Disbursements" titleUppercase="false">
+            <m:Table id="disbursementsTable" sticky="HeaderToolbar,ColumnHeaders">
+                <!-- <m:headerToolbar>
+                    <m:OverflowToolbar>
+                        <m:ToolbarSpacer/>
+                        <m:SearchField width="15rem" editable="false"/>
+                        <m:Button text="Create" icon="sap-icon://add" type="Transparent" enabled="false" />
+                        <m:Button text="Delete" icon="sap-icon://delete" type="Transparent" enabled="false" />
+                    </m:OverflowToolbar>
+                </m:headerToolbar> -->
+                <m:columns>
+                    <m:Column width="5rem"><m:Text text="Line Item"/></m:Column>
+                    <m:Column hAlign="End"><m:Text text="New Disburse Amount"/></m:Column>
+                    <m:Column><m:Text text="Payment Date"/></m:Column>
+                    <m:Column><m:Text text="Bank Details"/></m:Column>
+                    <m:Column><m:Text text="House Bank"/></m:Column>
+                </m:columns>
+                <m:items>
+                    <m:ColumnListItem>
+                        <m:cells>
+                            <m:Text text="01" />
+                            <m:Text text="50,000.00" />
+                            <m:Text text="12/31/2026" />
+                            <m:Text text="Standard Bank" />
+                            <m:Text text="CHASE_01" />
+                        </m:cells>
+                    </m:ColumnListItem>
+                </m:items>
+            </m:Table>
+        </uxap:ObjectPageSubSection>
+        
+    </uxap:subSections>
+</uxap:ObjectPageSection>
+
+ <!-- ================= COMMENTS ================= -->
+                        <uxap:ObjectPageSection title="Comments">
+                            <uxap:subSections>
+                                <uxap:ObjectPageSubSection title="Comments">
+                                    <uxap:blocks>
+ 
+                                        <VBox class="sapUiSmallMargin">
+ 
+                                            <HBox width="100%" justifyContent="End">
+                                               <Link
+    text="View All Comments"
+    press="onOpenCommentsDialog"/>
+ 
+                                            </HBox>
+ 
+                                            <TextArea
+                                                width="100%"
+                                                rows="6"
+                                                growing="true"
+                                                growingMaxLines="10"
+                                                placeholder="Enter your comment..." />
+ 
+                                        </VBox>
+ 
+                                    </uxap:blocks>
+                                </uxap:ObjectPageSubSection>
+                            </uxap:subSections>
+                        </uxap:ObjectPageSection>
+ 
+
+
+                    </uxap:sections>
+                </uxap:ObjectPageLayout>
+            </content>
+            <Dialog
+    id="commentsDialog"
+    title="Comments"
+    contentWidth="700px"
+    contentHeight="500px"
+    draggable="true"
+    resizable="true">
+ 
+    <content>
+       <suite:Timeline id="commentsTimeline">
+ 
+    <suite:content>
+        <suite:TimelineItem
+            userName="{user}"
+            dateTime="{date}"
+            text="{message}"
+            userPicture="sap-icon://person-placeholder"/>
+    </suite:content>
+ 
+</suite:Timeline>
+ 
+    </content>
+ 
+    <endButton>
+        <Button text="Close" press="onCloseCommentsDialog"/>
+    </endButton>
+ 
+</Dialog>
+        </Page>
     </App>
 </mvc:View>
