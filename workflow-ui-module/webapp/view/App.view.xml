@@ -381,19 +381,19 @@
         columnsM="3"
         class="sapUiNoContentPadding"> <form:content>
             
-            <m:Label text="Incoming Payment Method:" />
+            <m:Label text="Incoming Payment Method" />
             <m:Input value="Method A (ACH)" editable="false" />
             
-            <m:Label text="AR Billing Job:" />
+            <m:Label text="AR Billing Job" />
             <m:Input value="Monthly Batch 01" editable="false" />
 
-            <m:Label text="Payoff Lock:" />
+            <m:Label text="Payoff Lock" />
             <m:CheckBox selected="false" enabled="false" />
             
-            <m:Label text="Exclude from Dunning Indicator:" />
+            <m:Label text="Exclude from Dunning Indicator" />
             <m:CheckBox selected="false" enabled="false" />
 
-            <m:Label text="1098 Relevant Indicator:" />
+            <m:Label text="1098 Relevant Indicator" />
             <m:CheckBox selected="false" enabled="false" />
             
         </form:content>
