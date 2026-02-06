@@ -324,9 +324,9 @@
                     <m:Column><m:Text text="Cond. Type Text" /></m:Column>
                     <m:Column><m:Text text="Eff. From" /></m:Column>
                     <m:Column><m:Text text="Percentage" /></m:Column>
-                    <m:Column><m:Text text="Condition Amnt" /></m:Column>
+                    <m:Column><m:Text text="Condition Amount" /></m:Column>
                     <m:Column><m:Text text="Payment From Exact Day" /></m:Column>
-                    <m:Column><m:Text text="Frequency in..." /></m:Column>
+                    <m:Column><m:Text text="Frequency in Months" /></m:Column>
                     <m:Column><m:Text text="Due Date" /></m:Column>
                     <m:Column><m:Text text="Calculation Date" /></m:Column>
                 </m:columns>
