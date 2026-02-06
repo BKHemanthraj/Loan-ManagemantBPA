@@ -42,8 +42,8 @@
             </m:VBox>
 
             <m:VBox width="20%">
-                <m:Label text="Partner Name" design="Bold"/>
-                <m:Text text="Peol Technologies" />
+                <m:Label text="Partner Name:" design="Bold"/>
+                <m:Text text="PEOL Technologies" />
             </m:VBox>
 
             <m:VBox width="20%">
@@ -278,6 +278,49 @@
                 </m:items>
             </m:FlexBox>
         </uxap:ObjectPageSubSection>
+        <uxap:ObjectPageSubSection title="Condition Items" titleUppercase="false">
+            <m:Table id="conditionItemsTable" sticky="HeaderToolbar,ColumnHeaders" inset="false">
+                <!-- <m:headerToolbar>
+                    <m:OverflowToolbar>
+                        <m:content>
+                            <m:ToolbarSpacer />
+                            <m:SearchField width="300px" placeholder="Search" />
+                            <m:Button text="Rate" type="Transparent" enabled="false" />
+                            <m:Button text="Create" type="Transparent" enabled="false" />
+                            <m:Button text="Delete" type="Transparent" enabled="false" />
+                            <m:Button icon="sap-icon://copy" type="Transparent" enabled="false" />
+                            <m:Button icon="sap-icon://paste" type="Transparent" enabled="false" />
+                            <m:Button icon="sap-icon://action-settings" type="Transparent" />
+                            <m:Button icon="sap-icon://excel-attachment" type="Transparent" />
+                        </m:content>
+                    </m:OverflowToolbar>
+                </m:headerToolbar> -->
+                <m:columns>
+                    <m:Column><m:Text text="Cond. Type Text" /></m:Column>
+                    <m:Column><m:Text text="Eff. From" /></m:Column>
+                    <m:Column><m:Text text="Percentage" /></m:Column>
+                    <m:Column><m:Text text="Condition Amnt" /></m:Column>
+                    <m:Column><m:Text text="Payment From Exact Day" /></m:Column>
+                    <m:Column><m:Text text="Frequency in..." /></m:Column>
+                    <m:Column><m:Text text="Due Date" /></m:Column>
+                    <m:Column><m:Text text="Calculation Date" /></m:Column>
+                </m:columns>
+                <m:items>
+                    <m:ColumnListItem>
+                        <m:cells>
+                            <m:Text text="Nominal Interest" />
+                            <m:Text text="01/01/2024" />
+                            <m:Text text="5.50 %" />
+                            <m:Text text="27,500.00 USD" />
+                            <m:Text text="Yes" />
+                            <m:Text text="3 Months" />
+                            <m:Text text="03/31/2024" />
+                            <m:Text text="03/30/2024" />
+                        </m:cells>
+                    </m:ColumnListItem>
+                </m:items>
+            </m:Table>
+        </uxap:ObjectPageSubSection>
 
     </uxap:subSections>
 </uxap:ObjectPageSection>
@@ -287,15 +330,15 @@
     <uxap:subSections>
         
         <uxap:ObjectPageSubSection title="Partners" titleUppercase="false">
-            <m:Table id="partnersTable" sticky="HeaderToolbar,ColumnHeaders">
+            <m:Table id="partnersTable" sticky="HeaderToolbar,ColumnHeaders" inset="false">
                 <m:headerToolbar>
-                    <!-- <m:OverflowToolbar>
+                    <m:OverflowToolbar>
                         <m:Title text="Partners (2)" level="H4" />
                         <m:ToolbarSpacer/>
                         <m:SearchField width="15rem" editable="false"/>
                         <m:Button text="Create" type="Transparent" enabled="false" />
                         <m:Button text="Delete" type="Transparent" enabled="false" />
-                    </m:OverflowToolbar> -->
+                    </m:OverflowToolbar>
                 </m:headerToolbar>
                 <m:columns>
                     <m:Column><m:Text text="BP Role No."/></m:Column>
@@ -330,39 +373,33 @@
             </m:Table>
         </uxap:ObjectPageSubSection>
 
-        <uxap:ObjectPageSubSection title="Incoming Payment" titleUppercase="false">
-            <m:FlexBox wrap="NoWrap" alignItems="Center" justifyContent="Start" class="sapUiSmallMargin">
-                <m:items>
-                    <m:VBox class="sapUiMediumMarginEnd">
-                        <m:Label text="Incoming Payment Method:" />
-                        <m:Select selectedKey="A" width="12rem" enabled="false">
-                            <core:Item key="A" text="Method A (ACH)" />
-                        </m:Select>
-                    </m:VBox>
-                    
-                    <m:VBox class="sapUiMediumMarginEnd">
-                        <m:Label text="AR Billing Job:" />
-                        <m:Select selectedKey="1" width="12rem" enabled="false">
-                            <core:Item key="1" text="Monthly Batch 01" />
-                        </m:Select>
-                    </m:VBox>
-                    
-                    <m:VBox class="sapUiMediumMarginEnd">
-                        <m:Label text="Payoff Lock:" />
-                        <m:CheckBox selected="true" enabled="false" />
-                    </m:VBox>
-                    
-                    <m:VBox>
-                        <m:Label text="Exclude from Dunning:" />
-                        <m:CheckBox selected="true" enabled="false" />
-                    </m:VBox>
-                    <m:VBox>
-                        <m:Label text="1098 Relevant Indicator:" />
-                        <m:CheckBox selected="true" enabled="false" />
-                    </m:VBox>
-                </m:items>
-            </m:FlexBox>
-        </uxap:ObjectPageSubSection>
+<uxap:ObjectPageSubSection title="Incoming Payment" titleUppercase="false">
+    <form:SimpleForm 
+        editable="false" 
+        layout="ColumnLayout" 
+        columnsL="3" 
+        columnsM="3"
+        class="sapUiNoContentPadding"> <form:content>
+            
+            <m:Label text="Incoming Payment Method:" />
+            <m:Input value="Method A (ACH)" editable="false" />
+            
+            <m:Label text="AR Billing Job:" />
+            <m:Input value="Monthly Batch 01" editable="false" />
+
+            <m:Label text="Payoff Lock:" />
+            <m:CheckBox selected="false" enabled="false" />
+            
+            <m:Label text="Exclude from Dunning Indicator:" />
+            <m:CheckBox selected="false" enabled="false" />
+
+            <m:Label text="1098 Relevant Indicator:" />
+            <m:CheckBox selected="false" enabled="false" />
+            
+        </form:content>
+    </form:SimpleForm>
+</uxap:ObjectPageSubSection>
+
 
     </uxap:subSections>
 </uxap:ObjectPageSection>
