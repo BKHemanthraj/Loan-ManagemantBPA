@@ -32,7 +32,7 @@
     <m:FlexBox width="100%" wrap="NoWrap" alignItems="Start" justifyContent="SpaceBetween">
         <m:items>
             <m:VBox width="20%">
-                <m:Label text="Loan" design="Bold"/>
+                <m:Label text="Loan No" design="Bold"/>
                 <m:Text text="LN-882299" />
             </m:VBox>
 
@@ -42,7 +42,7 @@
             </m:VBox>
 
             <m:VBox width="20%">
-                <m:Label text="Partner Name:" design="Bold"/>
+                <m:Label text="Partner Name" design="Bold"/>
                 <m:Text text="PEOL Technologies" />
             </m:VBox>
 
@@ -60,6 +60,8 @@
 </uxap:headerContent>
 
                     <uxap:sections>
+
+                    <!-- TrackingSection -->
 <uxap:ObjectPageSection id="trackingSection" title="Tracking" titleUppercase="false">
     <uxap:subSections>
         
@@ -86,28 +88,37 @@
             </m:FlexBox>
         </uxap:ObjectPageSubSection>
 
-        <uxap:ObjectPageSubSection title="Offer/Accept" titleUppercase="false">
-            <m:FlexBox wrap="NoWrap" alignItems="Center" justifyContent="Start" class="sapUiSmallMargin">
-                <m:items>
-                    <m:VBox class="sapUiMediumMarginEnd">
-                        <m:Label text="Offer On:" />
-                        <m:DatePicker value="12/31/2026" displayFormat="MM/dd/yyyy" editable="false" width="12rem" />
-                    </m:VBox>
-                    <m:VBox class="sapUiMediumMarginEnd">
-                        <m:Label text="Offer Until:" />
-                        <m:DatePicker value="12/31/2026" displayFormat="MM/dd/yyyy" editable="false" width="12rem" />
-                    </m:VBox>
-                    <m:VBox class="sapUiMediumMarginEnd">
-                        <m:Label text="Acceptance:" />
-                        <m:CheckBox selected="true" enabled="false" />
-                    </m:VBox>
-                    <m:VBox>
-                        <m:Label text="Accepted On:" />
-                        <m:DatePicker value="12/31/2026" displayFormat="MM/dd/yyyy" editable="false" width="12rem" />
-                    </m:VBox>
-                </m:items>
-            </m:FlexBox>
-        </uxap:ObjectPageSubSection>
+      <uxap:ObjectPageSubSection title="Offer/Accept" titleUppercase="false">
+    <m:HBox class="sapUiSmallMargin">
+        <m:VBox class="sapUiLargeMarginEnd">
+            <m:Title text="Offer" titleStyle="H6" class="sapUiSmallMarginBottom" />
+            <m:HBox>
+                <m:VBox class="sapUiMediumMarginEnd">
+                    <m:Label text="Offer On:" />
+                    <m:DatePicker value="12/31/2026" displayFormat="MM/dd/yyyy" editable="false" width="12rem" />
+                </m:VBox>
+                <m:VBox>
+                    <m:Label text="Offer Until:" />
+                    <m:DatePicker value="12/31/2026" displayFormat="MM/dd/yyyy" editable="false" width="12rem" />
+                </m:VBox>
+            </m:HBox>
+        </m:VBox>
+
+        <m:VBox>
+            <m:Title text="Acceptance" titleStyle="H6" class="sapUiSmallMarginBottom" />
+            <m:HBox>
+                <m:VBox class="sapUiMediumMarginEnd">
+                    <m:Label text="Acceptance:" />
+                    <m:CheckBox selected="true" enabled="false" />
+                </m:VBox>
+                <m:VBox>
+                    <m:Label text="Accepted On:" />
+                    <m:DatePicker value="12/31/2026" displayFormat="MM/dd/yyyy" editable="false" width="12rem" />
+                </m:VBox>
+            </m:HBox>
+        </m:VBox>
+    </m:HBox>
+</uxap:ObjectPageSubSection>
 
         <uxap:ObjectPageSubSection title="Contract" titleUppercase="false">
             <m:FlexBox wrap="NoWrap" alignItems="Center" justifyContent="Start" class="sapUiSmallMargin">
@@ -136,10 +147,10 @@
 </uxap:ObjectPageSection>
 
 
-                  <uxap:ObjectPageSection id="basicDataSection" title="Basic data" titleUppercase="false">
+<uxap:ObjectPageSection id="basicDataSection" title="Basic data" titleUppercase="false">
     <uxap:subSections>
         
-        <uxap:ObjectPageSubSection title="General Information" titleUppercase="false">
+        <uxap:ObjectPageSubSection title="Basic Data" titleUppercase="false">
             <m:FlexBox wrap="NoWrap" alignItems="Center" justifyContent="Start" class="sapUiSmallMargin">
                 <m:items>
                     <m:VBox class="sapUiMediumMarginEnd">
@@ -155,63 +166,77 @@
         </uxap:ObjectPageSubSection>
 
         <uxap:ObjectPageSubSection title="Analysis Data" titleUppercase="false">
-            <m:FlexBox wrap="NoWrap" alignItems="Center" justifyContent="Start" class="sapUiSmallMargin">
-                <m:items>
-                    <m:VBox class="sapUiMediumMarginEnd">
-                        <m:Label text="Purpose of Loan:" />
-                        <m:Input value="Infrastructure Expansion" editable="false" width="11rem" />
-                    </m:VBox>
-                    <m:VBox class="sapUiMediumMarginEnd">
-                        <m:Label text="Designation:" />
-                        <m:Input value="Priority A" editable="false" width="11rem" />
-                    </m:VBox>
-                    <m:VBox class="sapUiMediumMarginEnd">
-                        <m:Label text="Pledged Status:" />
-                        <m:Input value="Fully Pledged" editable="false" width="11rem" />
-                    </m:VBox>
-                    <m:VBox>
-                        <m:Label text="Amortization Status:" />
-                        <m:Select selectedKey="Active" width="11rem" enabled="false">
-                            <core:Item key="Active" text="Active" />
-                        </m:Select>
-                    </m:VBox>
-                </m:items>
-            </m:FlexBox>
+            <m:VBox class="sapUiSmallMargin">
+                <m:Title text="Information" level="H6" class="sapUiSmallMarginBottom" />
+                <m:FlexBox wrap="NoWrap" alignItems="Center" justifyContent="Start">
+                    <m:items>
+                        <m:VBox class="sapUiMediumMarginEnd">
+                            <m:Label text="Purpose of Loan:" />
+                            <m:Input value="Infrastructure Expansion" editable="false" width="10rem" />
+                        </m:VBox>
+                        <m:VBox class="sapUiMediumMarginEnd">
+                            <m:Label text="Designation:" />
+                            <m:Input value="Priority A" editable="false" width="10rem" />
+                        </m:VBox>
+                        <m:VBox class="sapUiMediumMarginEnd">
+                            <m:Label text="Pledged Status:" />
+                            <m:Input value="Fully Pledged" editable="false" width="10rem" />
+                        </m:VBox>
+                        <m:VBox>
+                            <m:Label text="Amortization Status:" />
+                            <m:Select selectedKey="Active" width="10rem" enabled="false">
+                                <core:Item key="Active" text="Active" />
+                            </m:Select>
+                        </m:VBox>
+                    </m:items>
+                </m:FlexBox>
+            </m:VBox>
         </uxap:ObjectPageSubSection>
 
         <uxap:ObjectPageSubSection title="Organization" titleUppercase="false">
-            <m:FlexBox wrap="NoWrap" alignItems="Center" justifyContent="Start" class="sapUiSmallMargin">
-                <m:items>
-                    <m:VBox class="sapUiMediumMarginEnd">
-                        <m:Label text="County:" />
-                        <m:Input value="New York" editable="false" width="12rem" />
-                    </m:VBox>
-                    <m:VBox class="sapUiMediumMarginEnd">
-                        <m:Label text="Organiz. District:" />
-                        <m:Input value="District 05" editable="false" width="12rem" />
-                    </m:VBox>
-                    <m:VBox>
-                        <m:Label text="Agent District:" />
-                        <m:Input value="AD-99" editable="false" width="12rem" />
-                    </m:VBox>
-                </m:items>
-            </m:FlexBox>
+            <m:VBox class="sapUiSmallMargin">
+                <m:Title text="Agent Data" level="H6" class="sapUiSmallMarginBottom" />
+                <m:FlexBox wrap="NoWrap" alignItems="Center" justifyContent="Start">
+                    <m:items>
+                        <m:VBox class="sapUiMediumMarginEnd">
+                            <m:Label text="County:" />
+                            <m:Input value="New York" editable="false" width="12rem" />
+                        </m:VBox>
+                        <m:VBox class="sapUiMediumMarginEnd">
+                            <m:Label text="Organiz. District:" />
+                            <m:Input value="District 05" editable="false" width="12rem" />
+                        </m:VBox>
+                        <m:VBox>
+                            <m:Label text="Agent District:" />
+                            <m:Input value="AD-99" editable="false" width="12rem" />
+                        </m:VBox>
+                    </m:items>
+                </m:FlexBox>
+            </m:VBox>
         </uxap:ObjectPageSubSection>
 
         <uxap:ObjectPageSubSection title="Reference Data" titleUppercase="false">
-            <m:FlexBox wrap="NoWrap" alignItems="Center" justifyContent="Start" class="sapUiSmallMargin">
+            <m:FlexBox wrap="NoWrap" alignItems="Start" justifyContent="Start" class="sapUiSmallMargin">
                 <m:items>
-                    <m:VBox class="sapUiMediumMarginEnd">
-                        <m:Label text="Legacy Number:" />
-                        <m:Input value="LEG-8822" editable="false" width="12rem" />
-                    </m:VBox>
-                    <m:VBox class="sapUiMediumMarginEnd">
-                        <m:Label text="Project Number:" />
-                        <m:Input value="PROJ-001" editable="false" width="12rem" />
+                    <m:VBox class="sapUiLargeMarginEnd">
+                        <m:Title text="Other References" level="H6" class="sapUiSmallMarginBottom" />
+                        <m:FlexBox>
+                            <m:VBox class="sapUiMediumMarginEnd">
+                                <m:Label text="Legacy Number:" />
+                                <m:Input value="LEG-8822" editable="false" width="12rem" />
+                            </m:VBox>
+                            <m:VBox>
+                                <m:Label text="Project Number:" />
+                                <m:Input value="PROJ-001" editable="false" width="12rem" />
+                            </m:VBox>
+                        </m:FlexBox>
                     </m:VBox>
                     <m:VBox>
-                        <m:Label text="Primary Industry:" />
-                        <m:Input value="Technology" editable="false" width="12rem" />
+                        <m:Title text="Group Key" level="H6" class="sapUiSmallMarginBottom" />
+                        <m:VBox>
+                            <m:Label text="Primary Industry:" />
+                            <m:Input value="Technology" editable="false" width="12rem" />
+                        </m:VBox>
                     </m:VBox>
                 </m:items>
             </m:FlexBox>
@@ -331,7 +356,7 @@
         
         <uxap:ObjectPageSubSection title="Partners" titleUppercase="false">
             <m:Table id="partnersTable" sticky="HeaderToolbar,ColumnHeaders" inset="false">
-                <m:headerToolbar>
+                <!-- <m:headerToolbar>
                     <m:OverflowToolbar>
                         <m:Title text="Partners (2)" level="H4" />
                         <m:ToolbarSpacer/>
@@ -339,12 +364,13 @@
                         <m:Button text="Create" type="Transparent" enabled="false" />
                         <m:Button text="Delete" type="Transparent" enabled="false" />
                     </m:OverflowToolbar>
-                </m:headerToolbar>
+                </m:headerToolbar> -->
                 <m:columns>
                     <m:Column><m:Text text="BP Role No."/></m:Column>
                     <m:Column><m:Text text="Role Name"/></m:Column>
                     <m:Column><m:Text text="Partner No."/></m:Column>
                     <m:Column><m:Text text="Partner Name"/></m:Column>
+                    <m:Column><m:Text text="Bank Deatils ID"/></m:Column>
                     <m:Column><m:Text text="Start Rel."/></m:Column>
                     <m:Column hAlign="End"><m:Text text="End Rel."/></m:Column>
                 </m:columns>
@@ -355,6 +381,8 @@
                             <m:Text text="Main Borrower" />
                             <m:Text text="BP882299" />
                             <m:Text text="TechCorp Solutions" />
+                            <m:Text text="01012026882299" />
+                            
                             <m:Text text="01/01/2026" />
                             <m:Text text="12/31/2030" />
                         </m:cells>
@@ -365,6 +393,7 @@
                             <m:Text text="Co-Borrower" />
                             <m:Text text="BP554433" />
                             <m:Text text="Global Logistics Inc" />
+                            <m:Text text="01012026882299" />
                             <m:Text text="02/15/2026" />
                             <m:Text text="12/31/2030" />
                         </m:cells>
@@ -411,7 +440,7 @@
             <m:FlexBox wrap="NoWrap" alignItems="Center" justifyContent="Start" class="sapUiSmallMargin">
                 <m:items>
                     <m:VBox class="sapUiMediumMarginEnd">
-                        <m:Label text="Disbursement Oblig:" />
+                        <m:Label text="Disbursement Oblig..:" />
                         <m:Input value="450,000.00 USD" editable="false" width="15rem" />
                     </m:VBox>
                 </m:items>
@@ -433,18 +462,26 @@
                 <m:columns>
                     <m:Column width="8rem"><m:Text text="Document Line"/></m:Column>
                     <m:Column><m:Text text="Loan Category"/></m:Column>
+                     <m:Column><m:Text text="Flow Type"/></m:Column>
                     <m:Column><m:Text text="Original Amount"/></m:Column>
+                    <m:Column><m:Text text="Text"/></m:Column>
                     <m:Column><m:Text text="Fund"/></m:Column>
+                    <m:Column><m:Text text="Budget Pd"/></m:Column>
                     <m:Column><m:Text text="GL Account"/></m:Column>
+                    <m:Column><m:Text text="Completion Indicator"/></m:Column>
                 </m:columns>
                 <m:items>
                     <m:ColumnListItem>
                         <m:cells>
                             <m:Text text="0001" />
                             <m:Text text="Commercial" />
+                            <m:Text text="13" />
                             <m:Text text="100,000.00" />
+                            <m:Text text="Approved" />
                             <m:Text text="FUND_01" />
                             <m:Text text="600200" />
+                            <m:Text text="6343200" />
+                            <m:CheckBox selected="false" editable="false"/>
                         </m:cells>
                     </m:ColumnListItem>
                 </m:items>
@@ -465,6 +502,8 @@
                     <m:Column width="5rem"><m:Text text="Line Item"/></m:Column>
                     <m:Column hAlign="End"><m:Text text="New Disburse Amount"/></m:Column>
                     <m:Column><m:Text text="Payment Date"/></m:Column>
+                    <m:Column><m:Text text="Effective Date"/></m:Column>
+                    <m:Column><m:Text text="Payment Method"/></m:Column>
                     <m:Column><m:Text text="Bank Details"/></m:Column>
                     <m:Column><m:Text text="House Bank"/></m:Column>
                 </m:columns>
@@ -474,6 +513,8 @@
                             <m:Text text="01" />
                             <m:Text text="50,000.00" />
                             <m:Text text="12/31/2026" />
+                            <m:Text text="12/31/2026" />
+                            <m:Text text="Cash" />
                             <m:Text text="Standard Bank" />
                             <m:Text text="CHASE_01" />
                         </m:cells>
@@ -494,8 +535,10 @@
                                         <VBox class="sapUiSmallMargin">
  
                                             <HBox width="100%" justifyContent="End">
-                                               <Link
-    text="View All Comments"
+                                                <Button
+    text="&#160;View All Comments"
+    icon="sap-icon://comment"
+    type="Transparent"
     press="onOpenCommentsDialog"/>
  
                                             </HBox>

@@ -7,25 +7,25 @@ sap.ui.define([
     return Controller.extend("LoanManagementBPA.workflowuimodule.controller.App", {
        onInit: function () {
  
-        var oData = {
-          comments: [
-            {
-              user: "privileged ",
-              date: "21/01/2026, 11:04:50",
-              message: "latest comment 1"
-            },
-            {
-              user: "anonymous ",
-              date: "07/01/2026, 16:04:42",
-              message: " bad quality product"
-            },
-            {
-              user: "anonymous ",
-              date: "07/01/2026, 16:04:42",
-              message: " comment 1234"
-            }
-          ]
-        };
+  var oData = {
+    comments: [
+        {
+            user: "michael.johnson@northstarbank.com",
+            date: "02/05/2026, 09:18:22",
+            message: "Income and credit history acceptable; approved."
+        },
+        {
+            user: "emily.carter@northstarbank.com",
+            date: "02/04/2026, 14:42:10",
+            message: "Policy deviations observed; unable to proceed"
+        },
+        {
+            user: "daniel.brooks@northstarbank.com",
+            date: "02/03/2026, 16:05:37",
+            message: "Repayment capacity verified; approval granted."
+        }
+    ]
+  }
  
         var oModel = new sap.ui.model.json.JSONModel(oData);
         this.getView().setModel(oModel, "context");
