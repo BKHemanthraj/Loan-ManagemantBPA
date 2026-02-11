@@ -98,23 +98,27 @@
                     <m:DatePicker value="12/31/2026" displayFormat="MM/dd/yyyy" editable="false" width="12rem" />
                 </m:VBox>
                 <m:VBox>
-                    <m:Label text="Offer Until:" />
+                    <m:Label text="Accepted On:" />
                     <m:DatePicker value="12/31/2026" displayFormat="MM/dd/yyyy" editable="false" width="12rem" />
                 </m:VBox>
+                <!-- <m:VBox>
+                    <m:Label text="Offer Until:" />
+                    <m:DatePicker value="12/31/2026" displayFormat="MM/dd/yyyy" editable="false" width="12rem" />
+                </m:VBox> -->
             </m:HBox>
         </m:VBox>
 
         <m:VBox>
-            <m:Title text="Acceptance" titleStyle="H6" class="sapUiSmallMarginBottom" />
+            <!-- <m:Title text="Acceptance" titleStyle="H6" class="sapUiSmallMarginBottom" /> -->
             <m:HBox>
-                <m:VBox class="sapUiMediumMarginEnd">
+                <!-- <m:VBox class="sapUiMediumMarginEnd">
                     <m:Label text="Acceptance:" />
                     <m:CheckBox selected="true" enabled="false" />
-                </m:VBox>
-                <m:VBox>
+                </m:VBox> -->
+                <!-- <m:VBox>
                     <m:Label text="Accepted On:" />
                     <m:DatePicker value="12/31/2026" displayFormat="MM/dd/yyyy" editable="false" width="12rem" />
-                </m:VBox>
+                </m:VBox> -->
             </m:HBox>
         </m:VBox>
     </m:HBox>
@@ -124,17 +128,17 @@
             <m:FlexBox wrap="NoWrap" alignItems="Center" justifyContent="Start" class="sapUiSmallMargin">
                 <m:items>
                     <m:VBox class="sapUiMediumMarginEnd">
-                        <m:Label text="Contract On:" />
+                        <m:Label text="Loan Close Date:" />
                         <m:DatePicker value="12/31/2026" displayFormat="MM/dd/yyyy" editable="false" width="11rem" />
                     </m:VBox>
                     <m:VBox class="sapUiMediumMarginEnd">
                         <m:Label text="Amortization Date:" />
                         <m:DatePicker value="12/31/2026" displayFormat="MM/dd/yyyy" editable="false" width="11rem" />
                     </m:VBox>
-                    <m:VBox class="sapUiMediumMarginEnd">
+                    <!-- <m:VBox class="sapUiMediumMarginEnd">
                         <m:Label text="Maturity Date:" />
                         <m:DatePicker value="12/31/2026" displayFormat="MM/dd/yyyy" editable="false" width="11rem" />
-                    </m:VBox>
+                    </m:VBox> -->
                     <m:VBox>
                         <m:Label text="Date Paid Off:" />
                         <m:DatePicker value="12/31/2026" displayFormat="MM/dd/yyyy" editable="false" width="11rem" />
@@ -263,17 +267,21 @@
             <m:FlexBox wrap="NoWrap" alignItems="Center" justifyContent="Start" class="sapUiSmallMargin">
                 <m:items>
                     <m:VBox class="sapUiMediumMarginEnd">
-                        <m:Label text="Fixed From:" />
+                        <m:Label text="Amortization Start:" />
                         <m:DatePicker value="12/31/2026" displayFormat="MM/dd/yyyy" editable="false" width="12rem" />
                     </m:VBox>
                     <m:VBox class="sapUiMediumMarginEnd">
-                        <m:Label text="Fixed Until:" />
+                        <m:Label text="Amortization End:" />
                         <m:DatePicker value="12/31/2026" displayFormat="MM/dd/yyyy" editable="false" width="12rem" />
                     </m:VBox>
-                    <m:VBox>
+                    <m:VBox class="sapUiMediumMarginEnd">
+                        <m:Label text="Maturity Date:" />
+                        <m:DatePicker value="12/31/2026" displayFormat="MM/dd/yyyy" editable="false" width="12rem" />
+                    </m:VBox>
+                    <!-- <m:VBox>
                         <m:Label text="Inclusive Indicator:" />
                         <m:CheckBox selected="true" enabled="false" />
-                    </m:VBox>
+                    </m:VBox> -->
                 </m:items>
             </m:FlexBox>
         </uxap:ObjectPageSubSection>
@@ -329,6 +337,7 @@
                     <m:Column><m:Text text="Frequency in Months" /></m:Column>
                     <m:Column><m:Text text="Due Date" /></m:Column>
                     <m:Column><m:Text text="Calculation Date" /></m:Column>
+                     <m:Column><m:Text text="End Condition" /></m:Column>
                 </m:columns>
                 <m:items>
                     <m:ColumnListItem>
@@ -341,6 +350,7 @@
                             <m:Text text="3 Months" />
                             <m:Text text="03/31/2024" />
                             <m:Text text="03/30/2024" />
+                            <m:CheckBox selected="true" editable="false"/>
                         </m:cells>
                     </m:ColumnListItem>
                 </m:items>
@@ -469,6 +479,7 @@
                     <m:Column><m:Text text="Budget Pd"/></m:Column>
                     <m:Column><m:Text text="GL Account"/></m:Column>
                     <m:Column><m:Text text="Completion Indicator"/></m:Column>
+                    <m:Column><m:Text text="Select Account Coding"/></m:Column>
                 </m:columns>
                 <m:items>
                     <m:ColumnListItem>
@@ -482,6 +493,7 @@
                             <m:Text text="600200" />
                             <m:Text text="6343200" />
                             <m:CheckBox selected="false" editable="false"/>
+                            <m:Text text="FUND_055" />
                         </m:cells>
                     </m:ColumnListItem>
                 </m:items>
